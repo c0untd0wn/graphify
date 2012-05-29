@@ -1,0 +1,31 @@
+body{
+}
+
+.block {
+}
+
+#table_iframe {
+	width: 600px;
+	height: 700px;
+}
+tr input {
+}
+.centered {
+	text-align: center;
+}
+#input_table {
+	margin: 0 auto;
+}
+.row {
+	margin-bottom: 20px;
+}
+header {
+	margin-top: 30px;
+}
+header h1 {
+	font-size: 54px;
+	margin-bottom: 9px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 1;
+}

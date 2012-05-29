@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+		<title>Graphify</title>
+
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Graphify</h1>
+				<p class="lead">The easiest way to make graphs!</p>
+			</header>
+			<section id="input">
+				<div class="centered">
+					<table id="input_table">
+						<caption><input type="text" placeholder="Your Title" /></caption>
+						<thead>
+							<tr>
+							<td></td>
+							<th scope="col"></th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							<th scope="row"></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							</tr>
+							<tr>
+							<th scope="row"></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							</tr>
+							<tr>
+							<th scope="row"></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							</tr>
+							<tr>
+							<th scope="row"></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							</tr>		
+						</tbody>
+					</table>	
+				</div>
+			</section>
+			<section id="options">
+				<form>
+					<div class="row">
+						<div class="span2 offset3">
+							<h3>Theme</h3>
+							<label class="radio">
+								<input type="radio" name="theme" value="light" checked />Light<br />
+							</label>
+							<label class="radio">
+								<input type="radio" name="theme" value="dark" />Dark<br />
+							</label>
+						</div>
+
+						<div class="span2">
+							<h3>Graph Type</h3>
+							<label class="radio">
+								<input type="radio" name="type" value="line" checked />Line<br />
+							</label>
+							<label class="radio">
+								<input type="radio" name="type" value="area" />Area<br />
+							</label>
+							<label class="radio">
+								<input type="radio" name="type" value="bar" />Bar<br />
+							</label>
+							<label class="radio">
+								<input type="radio" name="type" value="pie" />Pie<br />
+							</label>
+						</div>
+
+						<div class="span2">
+							<h3>Axis</h3>
+							<label class="radio">
+								<input type="radio" name="axis" value="x" checked />x<br />
+							</label>
+							<label class="radio">
+								<input type="radio" name="axis" value="y" />y<br />
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="span2 offset5">
+							<input type="button" value="Generate!" id="generate_btn" class="btn-large btn btn-primary" />
+						</div>
+					</div>
+				</form>
+			</section>
+			<section id="result">
+				<div class="centered">
+				</div>
+			</section>
+		</div>
+	</body>
+</html>
