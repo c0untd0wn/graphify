@@ -10,9 +10,14 @@ $('document').ready(function(){
 	$('td').append('<input type="text" />');
 	$('td input').first().remove();
 	*/
+
+	// '<iframe>'.concat($('#table_iframe').contents().find('html').html(), '</iframe>')
+
 	$('th').append('<input type="text" class="input-mini" placeholder="Label" />');
 	$('td').append('<input type="text" class="input-mini" placeholder="Data" />');
 	$('thead tr td').empty().text('#');
+
+	$('#myModal').modal({ keyboard: false, show: false });
 
 	// attach tooltips
 	$('caption').popover({ title: 'Title for the table/graph is recommended!', trigger: 'manual', placement: 'right' });
