@@ -10,7 +10,8 @@ $('document').ready(function(){
 	$('td').append('<input type="text" />');
 	$('td input').first().remove();
 	*/
-	$('th, td').append('<input type="text" class="input-mini" />');
+	$('th').append('<input type="text" class="input-mini" placeholder="Label" />');
+	$('td').append('<input type="text" class="input-mini" placeholder="Data" />');
 	$('thead tr td').empty().text('#');
 	$('#generate_btn').click(function(){
 		$('#table_iframe').remove();
@@ -37,8 +38,8 @@ $('document').ready(function(){
 			}
 		});
 		if(column_empty == 0){
-			$('thead tr').append('<th scope="col"><input type="text" class="input-mini" /></th>');
-			$('tbody tr').append('<td><input type="text" class="input-mini" /></td>');
+			$('thead tr').append('<th scope="col"><input type="text" class="input-mini" placeholder="Label" /></th>');
+			$('tbody tr').append('<td><input type="text" class="input-mini" placeholder="Data" /></td>');
 		}
 		// check if last column doesn't have data (recursively)
 		else if(column_empty == 1){
