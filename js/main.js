@@ -22,7 +22,7 @@ $('document').ready(function(){
 
 	});
 	$('#embed').click(function(){
-		$('.modal-body').append('<div class="alert fade in"><button class="close" data-dismiss="alert">x</button><strong>Copy the code below</strong><br /><input type="textarea" style="width:100%;" /></div>');
+		$('.modal-body').prepend('<div class="alert fade in"><button class="close" data-dismiss="alert">x</button><strong>Copy the code below</strong><br /><input type="textarea" style="width:100%;" /></div>');
 		$('.modal-body input').val('<iframe>'.concat($('#table_iframe').contents().find('html').html(), '</iframe>'));
 	});
 
@@ -86,7 +86,9 @@ $('document').ready(function(){
 			address = address.concat('?', $.param(values));
 
 			$('<iframe />').attr('src', address).attr('id', 'table_iframe').attr('frameBorder', '0').attr('style', 'height:100%;').appendTo('#result .centered');
+			$('.alert').alert('close');
 			$('#myModal').modal('show');
+			setTimeout("$('.modal-body').css('height', $('iframe').contents().height());$('iframe').css('height', '100%');$('.centered').css('height', '100%')", 1000);
 		}
 	});
 
