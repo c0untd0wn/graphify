@@ -80,7 +80,7 @@ $('document').ready(function(){
 		// check if last column doesn't have data (recursively)
 		else if(column_empty == 1){
 			while(prev_column_empty == 1){
-				if($('table tr').first().children().size() == 2){
+				if($('table tr').first().children().size() <= 3){
 					prev_column_empty = 0;
 					console.log('Exceptional First Column!');
 				}
@@ -115,7 +115,7 @@ $('document').ready(function(){
 		}
 		else if(row_empty == 1){
 			while(prev_row_empty == 1){
-				if($('tbody tr:last').prev().size() == 0){
+				if($('tbody tr:last').prev().prev().size() == 0){
 					prev_row_empty = 0;
 					console.log('Exceptional First Row!');
 				}
