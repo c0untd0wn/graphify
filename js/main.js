@@ -13,18 +13,54 @@ $('document').ready(function(){
 	$('th').append('<input type="text" class="input-mini" placeholder="Label" />');
 	$('td').append('<input type="text" class="input-mini" placeholder="Data" />');
 	$('thead tr td').empty().text('#');
+
+	// attach tooltips
+	$('caption').popover({ title: 'Title for the table/graph is recommended!', trigger: 'manual', placement: 'right' });
+	$('tbody').popover({ title: 'Some cells are empty!', trigger: 'manual', placement: 'right' });
+
+
+	// generate graph when the button is clicked
 	$('#generate_btn').click(function(){
-		$('#table_iframe').remove();
-
-		var values = {};
-		$.each($('form').serializeArray(), function(i, field) {
-			values[field.name] = field.value;
+		// check empty cells
+		var empty_cell = 0;
+		$('thead th:not(:last-child) input').each(function(){
+			if($(this).val() == ''){
+				$(this).parent().addClass('control-group error');
+				empty_cell = 1;
+			}
 		});
-		var address = 'iframe.html';
-		address = address.concat('?', $.param(values));
+		$('tbody tr:not(:last-child) th input').each(function(){
+			if($(this).val() == ''){
+				$(this).parent().addClass('control-group error');
+				empty_cell = 1;
+			}
+		});
+		$('tbody tr:not(:last-child) td:not(:last-child) input').each(function(){
+			if($(this).val() == ''){
+				$(this).parent().addClass('control-group error');
+				empty_cell = 1;
+			}
+		});
+		if($('caption input').val() == ''){
+			$('caption').addClass('control-group warning');
+			$('caption').popover('show');
+		}
 
-		$('<iframe />').attr('src', address).attr('id', 'table_iframe').attr('frameBorder', '0').appendTo('#result .centered');
+		if(empty_cell == 1){
+			$('tbody').popover('show');
+		}
+		else{
+			$('#table_iframe').remove();
 
+			var values = {};
+			$.each($('form').serializeArray(), function(i, field) {
+				values[field.name] = field.value;
+			});
+			var address = 'iframe.html';
+			address = address.concat('?', $.param(values));
+
+			$('<iframe />').attr('src', address).attr('id', 'table_iframe').attr('frameBorder', '0').appendTo('#result .centered');
+		}
 	});
 
 	$('table input').live('change', function(){
