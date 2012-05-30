@@ -5,8 +5,7 @@ body{
 }
 
 #table_iframe {
-	width: 600px;
-	height: 700px;
+width: 100%;
 }
 tr input {
 }

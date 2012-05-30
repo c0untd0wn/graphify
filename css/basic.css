@@ -1,6 +1,6 @@
 /* page styles */
 body { font-family: "Segoe UI", Frutiger,Tahoma,Helvetica,"Helvetica Neue", Arial, sans-serif; }
-table {  border-collapse: collapse; }
+table {  border-collapse: collapse; display: none; }
 td, th { 
    text-align: center; 
    border: 1px solid #ddd; 
@@ -8,3 +8,6 @@ td, th {
    }
    
 caption {margin: 0 0 .5em; font-weight: bold; }
+
+table { margin: 0 !important; }
+.visualize { margin: 0 !important; }

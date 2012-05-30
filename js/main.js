@@ -18,10 +18,17 @@ $('document').ready(function(){
 	$('thead tr td').empty().text('#');
 
 	$('#myModal').modal({ keyboard: false, show: false });
+	$('#myModal').on('shown', function(){
+
+	});
+	$('#embed').click(function(){
+		$('.modal-body').append('<div class="alert fade in"><button class="close" data-dismiss="alert">x</button><strong>Copy the code below</strong><br /><input type="textarea" style="width:100%;" /></div>');
+		$('.modal-body input').val('<iframe>'.concat($('#table_iframe').contents().find('html').html(), '</iframe>'));
+	});
 
 	// attach tooltips
-	$('caption').popover({ title: 'Title for the table/graph is recommended!', trigger: 'manual', placement: 'right' });
-	$('tbody').popover({ title: 'Some cells are empty!', trigger: 'manual', placement: 'right' });
+	$('caption').popover({ title: 'Recommendation!', content: 'A title for the graph is recommended!', trigger: 'manual', placement: 'right' });
+	$('tbody').popover({ title: 'Oops! You got an error.', content: 'Some cells are empty! Please fill the highlighted cells to make a graph.', trigger: 'manual', placement: 'right' });
 
 
 	// generate graph when the button is clicked
@@ -78,7 +85,8 @@ $('document').ready(function(){
 			var address = 'iframe.html';
 			address = address.concat('?', $.param(values));
 
-			$('<iframe />').attr('src', address).attr('id', 'table_iframe').attr('frameBorder', '0').appendTo('#result .centered');
+			$('<iframe />').attr('src', address).attr('id', 'table_iframe').attr('frameBorder', '0').attr('style', 'height:100%;').appendTo('#result .centered');
+			$('#myModal').modal('show');
 		}
 	});
 
