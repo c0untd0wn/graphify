@@ -33,6 +33,9 @@ $(function(){
 			}).appendTo("head");
 		}
 	$('#input_table', window.parent.document).clone().appendTo('body');
+	$('thead th:last-child').remove();
+	$('tbody td:last-child').remove();
+	$('tbody tr:last').remove();
 	$('caption, th, td').each(function(){
 		i = $(this).find('input');
 		v = i.val();

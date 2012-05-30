@@ -28,11 +28,17 @@ $('document').ready(function(){
 				$(this).parent().addClass('control-group error');
 				empty_cell = 1;
 			}
+			else{
+				$(this).parent().removeClass('control-group error');
+			}
 		});
 		$('tbody tr:not(:last-child) th input').each(function(){
 			if($(this).val() == ''){
 				$(this).parent().addClass('control-group error');
 				empty_cell = 1;
+			}
+			else{
+				$(this).parent().removeClass('control-group error');
 			}
 		});
 		$('tbody tr:not(:last-child) td:not(:last-child) input').each(function(){
@@ -40,16 +46,24 @@ $('document').ready(function(){
 				$(this).parent().addClass('control-group error');
 				empty_cell = 1;
 			}
+			else{
+				$(this).parent().removeClass('control-group error');
+			}
 		});
 		if($('caption input').val() == ''){
 			$('caption').addClass('control-group warning');
 			$('caption').popover('show');
+		}
+		else{
+			$('caption').removeClass('control-group warning');
+			$('caption').popover('hide');
 		}
 
 		if(empty_cell == 1){
 			$('tbody').popover('show');
 		}
 		else{
+			$('tbody').popover('hide');
 			$('#table_iframe').remove();
 
 			var values = {};
