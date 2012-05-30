@@ -29,3 +29,15 @@ header h1 {
 	letter-spacing: -1px;
 	line-height: 1;
 }
+thead th:last-child input{
+	background-color: #EEE;
+	border-color: #DDD;
+}
+tbody td:last-child input {
+	background-color: #EEE;
+	border-color: #DDD;
+}
+tbody tr:last-child input {
+	background-color: #EEE;
+	border-color: #DDD;
+}

@@ -1,4 +1,15 @@
 $('document').ready(function(){
+	// generate input table
+	/*
+	for(var i=0; i<6; i=i+1){
+		$('#input_table').append('<tr class="row"></tr>');
+	}
+	for(var i=0; i<6; i=i+1){
+		$('tr').append('<td class="block"></td>');
+	}
+	$('td').append('<input type="text" />');
+	$('td input').first().remove();
+	*/
 	$('th, td').append('<input type="text" class="input-mini" />');
 	$('thead tr td').empty().text('#');
 	$('#generate_btn').click(function(){
@@ -13,6 +24,77 @@ $('document').ready(function(){
 
 		$('<iframe />').attr('src', address).attr('id', 'table_iframe').attr('frameBorder', '0').appendTo('#result .centered');
 
+	});
+
+	$('table input').live('change', function(){
+		var column_empty = 1;
+		var prev_column_empty = 1;
+		// check columns
+		// check if last column has data
+		$('table tr').each(function(){
+			if($(this).find('input').last().val() != ''){
+				column_empty = 0;
+			}
+		});
+		if(column_empty == 0){
+			$('thead tr').append('<th scope="col"><input type="text" class="input-mini" /></th>');
+			$('tbody tr').append('<td><input type="text" class="input-mini" /></td>');
+		}
+		// check if last column doesn't have data (recursively)
+		else if(column_empty == 1){
+			while(prev_column_empty == 1){
+				if($('table tr').first().children().size() == 2){
+					prev_column_empty = 0;
+					console.log('Exceptional First Column!');
+				}
+				console.log('Recursive Column Deletion!');
+				$('table tr').each(function(){
+					if($(this).find('input').last().parent().prev().children().val() != ''){
+						prev_column_empty = 0;
+					}
+				});
+				// remove last column
+				if(prev_column_empty == 1){
+					$('thead tr').find('th').last().remove();
+					$('tbody tr').each(function(){
+						$(this).find('td').last().remove();
+					});
+				}
+			}
+		}
+
+		// check rows
+		// check if last row has data
+		var row_empty = 1;
+		var prev_row_empty = 1;
+		$('tbody tr').last().children().each(function(){
+			if($(this).find('input').val() != ''){
+				row_empty = 0;
+			}
+		});
+		if(row_empty == 0){
+			$('tbody tr').last().clone().appendTo('tbody');
+			$('tbody tr:last input').val('');
+		}
+		else if(row_empty == 1){
+			while(prev_row_empty == 1){
+				if($('tbody tr:last').prev().size() == 0){
+					prev_row_empty = 0;
+					console.log('Exceptional First Row!');
+				}
+				console.log('Recursive Row Deletion!');
+				$('tbody tr:last').prev().children().each(function(){
+					if($(this).find('input').val() != ''){
+						prev_row_empty = 0;
+					}
+				});
+				// remove last row
+				if(prev_row_empty == 1){
+					$('tbody tr:last').remove();
+				}
+			}
+
+		}
 	});
 
 	/*
