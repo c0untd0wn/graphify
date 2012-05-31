@@ -5,5 +5,5 @@ It supports line, area, bar, and pie graphs.
 
 # Notes
 
-Graphify doesn't work in localhost because cross-domain policies are slightly different for localhost which makes graphify unable to utilize iframe dynamically.
-
+* Graphify doesn't work in localhost because cross-domain policies are slightly different for localhost which makes graphify unable to utilize iframe dynamically.
+* Google Chrome is strongly recommended for Graphify! (Other browsers are not guaranteed to be compatible at the moment)
