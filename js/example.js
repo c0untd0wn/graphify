@@ -22,14 +22,14 @@ $(function(){
 			$("<link/>", {
 			   rel: "stylesheet",
 			   type: "text/css",
-			   href: "css/visualize-light.css"
+			   href: "http://c0untd0wn.snucse.org/graphify/css/visualize-light.css"
 			}).appendTo("head");
 		}
 		else{
 			$("<link/>", {
 			   rel: "stylesheet",
 			   type: "text/css",
-			   href: "css/visualize-dark.css"
+			   href: "http://c0untd0wn.snucse.org/graphify/css/visualize-dark.css"
 			}).appendTo("head");
 		}
 
@@ -63,7 +63,7 @@ $(function(){
 	setTimeout(function(){
 		$('#input_table').hide();
 		type = $.getUrlVar('type');
-		if(type == 'pie'){ $('#input_table').visualize({type: 'pie', parseDirection: $.getUrlVar('axis'), height: '300px', width: '420px'}); alert($('table').html()); }
+		if(type == 'pie'){ $('#input_table').visualize({type: 'pie', parseDirection: $.getUrlVar('axis'), height: '200px', width: '420px'}); }
 		else if(type == 'bar'){ $('#input_table').visualize({type: 'bar', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
 		else if(type == 'area'){ $('#input_table').visualize({type: 'area', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
 		else{ $('#input_table').visualize({type: 'line', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
