@@ -32,10 +32,27 @@ $(function(){
 			   href: "css/visualize-dark.css"
 			}).appendTo("head");
 		}
-	$('#input_table', window.parent.document).clone().appendTo('body');
+
+	graph_or_table = 0;
+
+	$('#input_table', window.parent.document).clone().prependTo('body');
 	$('thead th:last-child').remove();
 	$('tbody td:last-child').remove();
 	$('tbody tr:last').remove();
+	$('input').click(function(){
+		if(graph_or_table == 0){
+			$('table').show();
+			$('.visualize').hide();
+			graph_or_table = 1;
+			$('input').val('See it in graph');
+		}
+		else{
+			$('table').hide();
+			$('.visualize').show();
+			graph_or_table = 0;
+			$('input').val('See it in table');
+		}
+	});
 	$('caption, th, td').each(function(){
 		i = $(this).find('input');
 		v = i.val();
@@ -43,9 +60,12 @@ $(function(){
 		p.empty();
 		p.text(v);
 	});
-	type = $.getUrlVar('type');
-	if(type == 'pie'){ $('table').visualize({type: 'pie', parseDirection: $.getUrlVar('axis'), height: '300px', width: '420px'}); }
-	else if(type == 'bar'){ $('table').visualize({type: 'bar', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
-	else if(type == 'area'){ $('table').visualize({type: 'area', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
-	else{ $('table').visualize({type: 'line', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
+	setTimeout(function(){
+		$('#input_table').hide();
+		type = $.getUrlVar('type');
+		if(type == 'pie'){ $('#input_table').visualize({type: 'pie', parseDirection: $.getUrlVar('axis'), height: '300px', width: '420px'}); alert($('table').html()); }
+		else if(type == 'bar'){ $('#input_table').visualize({type: 'bar', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
+		else if(type == 'area'){ $('#input_table').visualize({type: 'area', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
+		else{ $('#input_table').visualize({type: 'line', parseDirection: $.getUrlVar('axis'), width: '420px'}); }
+	}, 200);
 });

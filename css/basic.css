@@ -1,6 +1,6 @@
 /* page styles */
 body { font-family: "Segoe UI", Frutiger,Tahoma,Helvetica,"Helvetica Neue", Arial, sans-serif; }
-table {  border-collapse: collapse; display: none; }
+table {  border-collapse: collapse; }
 td, th { 
    text-align: center; 
    border: 1px solid #ddd; 
