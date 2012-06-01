@@ -84,6 +84,7 @@ $('document').ready(function(){
 			});
 			var address = 'iframe.html';
 			address = address.concat('?', $.param(values));
+			address = address.concat('&table=', LZW.compress(escape($('#input_table').parent().html())));
 
 			$('<iframe />').attr('src', address).attr('id', 'table_iframe').attr('frameBorder', '0').attr('style', 'height:100%;').appendTo('#result .centered');
 			$('.alert').alert('close');

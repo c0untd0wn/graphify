@@ -34,8 +34,11 @@ $(function(){
 		}
 
 	graph_or_table = 0;
+	table = $.getUrlVar('table');
+	alert(table);
+	$('body').prepend(unescape(LZW.decompress(table)));
 
-	$('#input_table', window.parent.document).clone().prependTo('body');
+	//$('#input_table', window.parent.document).clone().prependTo('body');
 	$('thead th:last-child').remove();
 	$('tbody td:last-child').remove();
 	$('tbody tr:last').remove();
